@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+{{name}}
+<ul>
+{% for table in tables %}
+
+    <li>{{table}}</li>
+    <a href="http://127.0.0.1:8000/main/home/table/add_row?table_name={{table}}&db_name={{db_name}}">
+        <button>Add row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/table/edit_row?table_name={{table}}&db_name={{db_name}}">
+        <button>Edit Row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/table/delete_row?table_name={{table}}&db_name={{db_name}}">
+        <button>Delete row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/table/del_same_rows?table_name={{table}}&db_name={{db_name}}">
+        <button>Delete the same rows</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/table/view_table?table_name={{table}}&db_name={{db_name}}">
+        <button>View Table</button>
+    </a>
+
+
+{% endfor %}
+</ul>
+<a href="/main/home/create_table?db_name={{db_name}}">
+   <button>Create New Table</button>
+</a>
+<a href="/main/home/download?db_name={{db_name}}">
+   <button>Download</button>
+</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/main/home/create_table" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input id="db_name" type="hidden" name="db_name" value="{{name}}">
+
+    <label for="table_name">Table name: </label>
+    <input id="table_name" type="text" name="table_name" value="{{ current_name }}">
+
+    <label for="cols_num">Number of cols </label>
+    <input id="cols_num" type="number" name="cols_num" min="1" value=5>
+
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>

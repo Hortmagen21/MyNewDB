@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/main/home/create_db" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <label for="db_name">DB name: </label>
+    <input id="db_name" type="text" name="db_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+
+
+</body>
+</html>
