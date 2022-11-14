@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/main/home/create_table/create_cols" method="post">
+<form action="/main/home/db/{{db_name}}/table/{{table_name}}/create_cols/{{cols_num}}" method="post">
     {% csrf_token %}
     {{ form }}
     <input id="db_name" type="hidden" name="db_name" value="{{db_name}}">

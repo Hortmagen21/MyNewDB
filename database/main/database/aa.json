@@ -1,7 +1,7 @@
 {
     "name": "aa",
     "tables": {
-        "AA": {
+        "New": {
             "cols_type": [
                 "int",
                 "str",
@@ -10,30 +10,65 @@
                 "time"
             ],
             "cols_name": [
-                "i",
-                "s",
-                "r",
-                "c",
-                "t"
+                "int_field1",
+                "str_field1",
+                "real_field1",
+                "char_field1",
+                "time_field1"
             ],
             "rows": [
                 {
-                    "i": "1",
-                    "s": "dkcek",
-                    "r": "1.01",
-                    "c": "Q",
-                    "t": "05:02",
+                    "int_field1": "25",
+                    "str_field1": "Htr",
+                    "real_field1": "1.00",
+                    "char_field1": "Q",
+                    "time_field1": "02:26",
                     "id": 1
-                },
-                {
-                    "i": "21",
-                    "s": "Max",
-                    "r": "1",
-                    "c": "Q",
-                    "t": "05:10",
-                    "id": 2
                 }
             ]
+        },
+        "H": {
+            "cols_type": [
+                "int",
+                "time",
+                "time",
+                "time",
+                "time"
+            ],
+            "cols_name": [
+                "int_field",
+                "TIME1",
+                "TIME2",
+                "TIME3",
+                "TIME4"
+            ],
+            "rows": [
+                {
+                    "int_field": "7777",
+                    "TIME1": "02:16",
+                    "TIME2": "06:00",
+                    "TIME3": "00:00",
+                    "TIME4": "00:00",
+                    "id": 1
+                }
+            ]
+        },
+        "Test": {
+            "cols_type": [
+                "int",
+                "str",
+                "real",
+                "char",
+                "time"
+            ],
+            "cols_name": [
+                "name1",
+                "name2",
+                "name3",
+                "name4",
+                "name5"
+            ],
+            "rows": []
         }
     }
 }
