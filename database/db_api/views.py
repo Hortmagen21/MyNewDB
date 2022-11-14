@@ -1,11 +1,10 @@
 from django.shortcuts import render
+from .forms import NameForm
 import json
-from django.http import HttpResponse
-from django.template import loader
-from main.forms import NameForm
-from django.http import HttpResponseRedirect
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.template import Context
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 
 class DB:
@@ -57,6 +56,125 @@ class Table:
         table.append(new_data)
 
 
+@api_view(["POST"])
+@csrf_exempt
+def create_db(request):
+    if request.method == 'POST':
+        db_name = request.data.get('db_name')
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        data = {
+            "name": db_name,
+            "tables": {}
+        }
+        json_object = json.dumps(data, indent=4)
+        with open(link, 'w+') as f:
+            f.write(json_object)
+            print("The database was created")
+
+        return Response(data)
+
+
+@api_view(["GET"])
+@csrf_exempt
+def db(request, db_name):
+    if request.method == 'GET':
+        db_name = db_name
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        with open(link, 'r') as f:
+            data_json = json.load(f)
+            print(data_json["name"])
+            data = {
+                "tables": data_json["tables"],
+                "db_name": db_name,
+            }
+        return Response(data)
+
+
+@api_view(["GET", "POST"])
+def create_table(request, db_name):
+    if request.method == 'GET':
+        db_name = db_name
+        data = {
+            "db_name": db_name
+        }
+        return Response(data)
+    if request.method == 'POST':
+        table_name = request.data.get('table_name')
+        cols_num = request.data.get('cols_num')
+        db_name = db_name
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        with open(link, 'r+') as f:
+            data = json.load(f)
+            new_data = {table_name: {}}
+            data["tables"].update(new_data)
+            json_object = json.dumps(data, indent=4)
+            f.seek(0)
+            f.write(json_object)
+            f.truncate()
+            print("The table in " + db_name + " was created and have name " + table_name)
+            cols_value = ""
+            for j in range(int(cols_num)):
+                cols_value += str(j)
+
+        return Response(status=200)
+
+
+@api_view(["POST"])
+def create_cols_names(request, db_name, table_name):
+    if request.method == 'POST':
+        db_name = db_name
+        table_name = table_name
+        names = request.POST.getlist('field', '')
+        new_data = {"cols_name": names}
+        empty_rows = {"rows": []}
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        with open(link, 'r+') as f:
+            data = json.load(f)
+            data["tables"][f"{table_name}"].update(new_data)
+            data["tables"][f"{table_name}"].update(empty_rows)
+            json_object = json.dumps(data, indent=4)
+            f.seek(0)
+            f.write(json_object)
+            f.truncate()
+        return Response(status=200)
+
+
+@api_view(["GET", "POST"])
+def create_cols(request, db_name, table_name, cols_num):
+    if request.method == 'GET':
+        db_name = db_name
+        table_name = table_name
+        cols_num = cols_num
+        data = {
+            "db_name": db_name,
+            "table_name": table_name,
+            "cols_num": cols_num,
+        }
+        return Response(data)
+    if request.method == 'POST':
+        db_name = request.POST.get('db_name', '')
+        cols_num = request.POST.get('cols_num', '')
+        table_name = request.POST.get('table_name', '')
+        types = request.POST.getlist('type', '')
+        new_data = {"cols_type": types}
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        with open(link, 'r+') as f:
+            data = json.load(f)
+            data["tables"][f"{table_name}"].update(new_data)
+            json_object = json.dumps(data, indent=4)
+            f.seek(0)
+            f.write(json_object)
+            f.truncate()
+        data = {
+            "db_name": db_name,
+            "table_name": table_name,
+            "cols_num": cols_num,
+            "cols_type": types,
+        }
+        return Response(data)
+
+
+@api_view(["GET", "POST"])
 def add_row(request, db_name, table_name):
     if request.method == 'GET':
         db_name = db_name
@@ -74,8 +192,7 @@ def add_row(request, db_name, table_name):
             "table_name": table_name,
             "cols_info": cols_info,
         }
-        template = loader.get_template('main/table_add_row.html')
-        return HttpResponse(template.render(data, request))
+        return Response(data)
     if request.method == 'POST':
         db_name = db_name
         table_name = table_name
@@ -98,135 +215,10 @@ def add_row(request, db_name, table_name):
 
         table.append(new_data)
         database.set_db_info_json(db_instance)
-        return HttpResponseRedirect(f"/main/home/db/{db_name}")
+        return Response(status=200)
 
 
-def home(request):
-    template = loader.get_template('main/index.html')
-    return HttpResponse(template.render({}, request))
-
-
-def create_db(request):
-    if request.method == 'POST':
-        form = NameForm(request.POST)
-
-        db_name = form.data.get('db_name')
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        data = {
-            "name": db_name,
-            "tables": {}
-        }
-        json_object = json.dumps(data, indent=4)
-        with open(link, 'w+') as f:
-            f.write(json_object)
-            print("The database was created")
-
-        return HttpResponseRedirect(f"db/{db_name}")
-
-
-def db(request, db_name):
-    if request.method == 'GET':
-        db_name = db_name
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        with open(link, 'r') as f:
-            data_json = json.load(f)
-            print(data_json["name"])
-            data = {
-                "tables": data_json["tables"],
-                "db_name": db_name,
-            }
-
-    template = loader.get_template('main/db.html')
-    return HttpResponse(template.render(data, request))
-
-
-def create_table(request, db_name):
-    if request.method == 'GET':
-        db_name = db_name
-        data = {
-            "db_name": db_name
-        }
-        template = loader.get_template('main/create_table.html')
-        return HttpResponse(template.render(data, request))
-    if request.method == 'POST':
-        form = NameForm(request.POST)
-        table_name = form.data.get('table_name')
-        cols_num = form.data.get('cols_num')
-        db_name = form.data.get('db_name')
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        with open(link, 'r+') as f:
-            data = json.load(f)
-            new_data = {table_name: {}}
-            data["tables"].update(new_data)
-            json_object = json.dumps(data, indent=4)
-            f.seek(0)
-            f.write(json_object)
-            f.truncate()
-            print("The table in " + db_name + " was created and have name " + table_name)
-            cols_value = ""
-            for j in range(int(cols_num)):
-                cols_value += str(j)
-
-        return HttpResponseRedirect(f"table/{table_name}/create_cols/{cols_value}")
-
-
-def create_cols(request, db_name, table_name, cols_num):
-    if request.method == 'GET':
-        db_name = db_name
-        table_name = table_name
-        cols_num = cols_num
-        data = {
-            "db_name": db_name,
-            "table_name": table_name,
-            "cols_num": cols_num,
-        }
-        template = loader.get_template('main/create_cols.html')
-        return HttpResponse(template.render(data, request))
-    if request.method == 'POST':
-        db_name = request.POST.get('db_name', '')
-        cols_num = request.POST.get('cols_num', '')
-        table_name = request.POST.get('table_name', '')
-        types = request.POST.getlist('type', '')
-        new_data = {"cols_type": types}
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        with open(link, 'r+') as f:
-            data = json.load(f)
-            data["tables"][f"{table_name}"].update(new_data)
-            json_object = json.dumps(data, indent=4)
-            f.seek(0)
-            f.write(json_object)
-            f.truncate()
-        data = {
-            "db_name": db_name,
-            "table_name": table_name,
-            "cols_num": cols_num,
-            "cols_type": types,
-        }
-        template = loader.get_template('main/cols_names.html')
-        return HttpResponse(template.render(data, request))
-
-
-# CHECK IF NOT NAME COL ID
-# CHECK DUBLS NAMES
-def create_cols_names(request, db_name, table_name):
-    if request.method == 'POST':
-        db_name = db_name
-        table_name = table_name
-        names = request.POST.getlist('field', '')
-        new_data = {"cols_name": names}
-        empty_rows = {"rows": []}
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        with open(link, 'r+') as f:
-            data = json.load(f)
-            data["tables"][f"{table_name}"].update(new_data)
-            data["tables"][f"{table_name}"].update(empty_rows)
-            json_object = json.dumps(data, indent=4)
-            f.seek(0)
-            f.write(json_object)
-            f.truncate()
-        return HttpResponseRedirect(f"/main/home/db/{db_name}")
-
-
+@api_view(["GET"])
 def view_table(request, db_name, table_name):
     if request.method == 'GET':
         db_name = db_name
@@ -242,12 +234,11 @@ def view_table(request, db_name, table_name):
             "rows": rows,
             "cols_name": cols_name,
         }
-        template = loader.get_template('main/view_table.html')
-        return HttpResponse(template.render(data, request))
+        return Response(data)
 
 
-@csrf_exempt
-def delete_row(request, db_name, table_name, id_delete):
+@api_view(["GET", "DELETE"])
+def delete_row(request, db_name, table_name):
     if request.method == 'GET':
         db_name = db_name
         table_name = table_name
@@ -255,12 +246,11 @@ def delete_row(request, db_name, table_name, id_delete):
             "db_name": db_name,
             "table_name": table_name,
         }
-        template = loader.get_template('main/table_delete_row.html')
-        return HttpResponse(template.render(data, request))
+        return Response(data)
     if request.method == 'DELETE':
         db_name = db_name
         table_name = table_name
-        row_id = id_delete
+        row_id = request.POST.get('id_field', '')
         link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
         with open(link, 'r+') as f:
             data_json = json.load(f)
@@ -278,9 +268,10 @@ def delete_row(request, db_name, table_name, id_delete):
             f.seek(0)
             f.write(json_object)
             f.truncate()
-        return HttpResponse(status=200)
+        return Response(status=200)
 
 
+@api_view(["GET", "POST"])
 def edit_row(request, db_name, table_name):
     if request.method == 'GET':
         db_name = db_name
@@ -298,8 +289,7 @@ def edit_row(request, db_name, table_name):
             "table_name": table_name,
             "cols_info": cols_info,
         }
-        template = loader.get_template('main/table_edit_row.html')
-        return HttpResponse(template.render(data, request))
+        return Response(data)
     if request.method == 'POST':
         db_name = db_name
         table_name = table_name
@@ -331,11 +321,12 @@ def edit_row(request, db_name, table_name):
             f.seek(0)
             f.write(json_object)
             f.truncate()
-        return HttpResponseRedirect(f"/main/home/db/{db_name}")
+        return Response(status=200)
 
 
+@api_view(["DELETE"])
 def del_same_rows(request, db_name, table_name):
-    if request.method == 'GET':
+    if request.method == 'DELETE':
         db_name = db_name
         table_name = table_name
         link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
@@ -365,32 +356,9 @@ def del_same_rows(request, db_name, table_name):
             f.seek(0)
             f.write(json_object)
             f.truncate()
-        return HttpResponseRedirect(f"/main/home/db/{db_name}")
+        return Response(status=200)
 
 
-def download(request):
-    if request.method == 'GET':
-        db_name = request.GET.get('db_name', '')
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
-        with open(link, 'r+') as f:
-            data_json = json.load(f)
-        response = HttpResponse(content_type='application/json; charset=utf-8')
-        response['Content-Disposition'] = 'attachment; filename="db.json"'
-
-        t = loader.get_template('main/download.json')
-        c = {
-            "db": data_json,
-        }
-
-        response.write(t.render(c))
-        return response
 
 
-def upload_db(request):
-    if request.method == "POST":
 
-        file = request.FILES
-        print(request)
-        print(file)
-
-    return HttpResponse(status=200)
