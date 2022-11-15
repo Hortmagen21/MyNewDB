@@ -5,7 +5,10 @@ from django.template import loader
 from main.forms import NameForm
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-from django.template import Context
+import ast
+from os import listdir
+from os.path import isfile, join
+import os
 
 
 class DB:
@@ -102,8 +105,18 @@ def add_row(request, db_name, table_name):
 
 
 def home(request):
+    path = 'C:/Users/Max/ITLab1/database/main/database'
+    files = [f for f in listdir(path) if isfile(join(path, f))]
+    db_names = []
+    for file in files:
+        name, ext = file.split('.')
+        db_names.append(name)
+
+    data = {
+        "db_names": db_names
+    }
     template = loader.get_template('main/index.html')
-    return HttpResponse(template.render({}, request))
+    return HttpResponse(template.render(data, request))
 
 
 def create_db(request):
@@ -213,9 +226,19 @@ def create_cols_names(request, db_name, table_name):
         db_name = db_name
         table_name = table_name
         names = request.POST.getlist('field', '')
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        if len(names) != len(set(names)):
+            print("ERROR: Some cols have same names")
+            with open(link, 'r+') as f:
+                data = json.load(f)
+                del data["tables"][f"{table_name}"]
+                json_object = json.dumps(data, indent=4)
+                f.seek(0)
+                f.write(json_object)
+                f.truncate()
+            return HttpResponseRedirect(f"/main/home/db/{db_name}")
         new_data = {"cols_name": names}
         empty_rows = {"rows": []}
-        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
         with open(link, 'r+') as f:
             data = json.load(f)
             data["tables"][f"{table_name}"].update(new_data)
@@ -270,6 +293,7 @@ def delete_row(request, db_name, table_name, id_delete):
                 if row['id'] == int(row_id):
                     break
                 i += 1
+            print(f"Row with id:{i+1} was deleted")
             try:
                 del rows[i]
             except IndexError:
@@ -334,8 +358,9 @@ def edit_row(request, db_name, table_name):
         return HttpResponseRedirect(f"/main/home/db/{db_name}")
 
 
+@csrf_exempt
 def del_same_rows(request, db_name, table_name):
-    if request.method == 'GET':
+    if request.method == 'DELETE':
         db_name = db_name
         table_name = table_name
         link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
@@ -365,12 +390,13 @@ def del_same_rows(request, db_name, table_name):
             f.seek(0)
             f.write(json_object)
             f.truncate()
-        return HttpResponseRedirect(f"/main/home/db/{db_name}")
+        # return HttpResponseRedirect(f"/main/home/db/{db_name}")
+        return HttpResponse(status=200)
 
 
-def download(request):
+def download(request, db_name):
     if request.method == 'GET':
-        db_name = request.GET.get('db_name', '')
+        db_name = db_name
         link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
         with open(link, 'r+') as f:
             data_json = json.load(f)
@@ -387,10 +413,68 @@ def download(request):
 
 
 def upload_db(request):
+    if request.method == "GET":
+        template = loader.get_template('main/upload.html')
+        return HttpResponse(template.render({}, request))
     if request.method == "POST":
+        f = request.FILES['db_name']
+        link = f'C:/Users/Max/ITLab1/database/main/database/{f.name}'
+        byte_str = f.read()
+        dict_str = byte_str.decode("UTF-8")
+        mydata = ast.literal_eval(dict_str)
+        path = f.name.split('.')
+        mydata["name"] = path[0]
+        with open(link, 'w+') as destination:
 
-        file = request.FILES
-        print(request)
-        print(file)
+            json_object = json.dumps(mydata, indent=4)
+            destination.write(json_object)
 
-    return HttpResponse(status=200)
+    return HttpResponseRedirect(f"/main/home/db/{path[0]}")
+
+
+# check db_name for .json, .png ...
+def edit_db_name(request, db_name):
+    if request.method == "GET":
+        data = {
+            "db_name": db_name
+        }
+        template = loader.get_template('main/db_edit_name.html')
+        return HttpResponse(template.render(data, request))
+    if request.method == "POST":
+        new_db_name = request.POST.get('db_name', '')
+        link_old = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        link_new = f'C:/Users/Max/ITLab1/database/main/database/{new_db_name}.json'
+        os.rename(link_old, link_new)
+        with open(link_new, 'r+') as f:
+            data_json = json.load(f)
+            data_json["name"] = new_db_name
+            json_object = json.dumps(data_json, indent=4)
+            f.seek(0)
+            f.write(json_object)
+            f.truncate()
+    return HttpResponseRedirect(f"/main/home/db/{new_db_name}")
+
+
+@csrf_exempt
+def delete_db(request, db_name):
+    if request.method == 'DELETE':
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        os.remove(link)
+        return HttpResponse(status=200)
+
+
+@csrf_exempt
+def delete_table(request, db_name, table_name):
+    if request.method == 'DELETE':
+        print("HERE")
+        link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
+        with open(link, 'r+') as f:
+            data_json = json.load(f)
+            del data_json["tables"][f"{table_name}"]
+            print("DATA")
+            print(data_json)
+            json_object = json.dumps(data_json, indent=4)
+            f.seek(0)
+            f.write(json_object)
+            f.truncate()
+        return HttpResponse(status=200)

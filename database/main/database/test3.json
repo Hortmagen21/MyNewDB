@@ -1,0 +1,31 @@
+{
+    "name": "test3",
+    "tables": {
+        "A": {
+            "cols_type": [
+                "int",
+                "str",
+                "real",
+                "char",
+                "time"
+            ],
+            "cols_name": [
+                "test",
+                "test2",
+                "test3",
+                "test4",
+                "test5"
+            ],
+            "rows": [
+                {
+                    "test": "1",
+                    "test2": "Wex",
+                    "test3": "1.01",
+                    "test4": "Q",
+                    "test5": "09:34",
+                    "id": 1
+                }
+            ]
+        }
+    }
+}

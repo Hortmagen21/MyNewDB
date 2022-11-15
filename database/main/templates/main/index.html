@@ -12,6 +12,16 @@
     <input id="db_name" type="text" name="db_name" value="{{ current_name }}">
     <input type="submit" value="OK">
 </form>
+{% for name in db_names%}
+
+    <p>{{name}}</p>
+    <a href="http://127.0.0.1:8000/main/home/db/{{name}}">
+        <button>Open</button>
+    </a>
+{% endfor %}
+<a href="http://127.0.0.1:8000/main/home/upload">
+        <button>Upload DB</button>
+</a>
 
 
 </body>

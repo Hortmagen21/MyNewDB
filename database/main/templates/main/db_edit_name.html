@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/main/home/db/{{db_name}}/edit_name" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <label for="db_name">New DB name: </label>
+    <input id="db_name" type="text" name="db_name">
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
