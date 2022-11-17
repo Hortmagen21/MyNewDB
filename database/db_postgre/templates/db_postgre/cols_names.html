@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function checkBanWords(col_num)
+{
+  var banned_words = ['id'];
+  var textvalue = document.getElementById('field_'+col_num).value;
+  for(var i=0; i<banned_words.length; i++) {
+    if (~textvalue.indexOf(banned_words[i])){
+
+
+      document.getElementById('field_'+col_num).value = "";
+      console.log('you have entered a banned word: ' + banned_words[i]);
+    }
+  }
+}
+</script>
+<form action="/main/home/db/{{db_name}}/table/{{table_name}}/create_cols_names" method="post">
+    {% csrf_token %}
+    {{ form }}
+
+    <ul>
+        {% for i in cols_num %}
+        <p>{{i}}</p>
+        <input name="field" id="field_{{i}}" onkeyup="checkBanWords({{i}})"/>
+
+        {% endfor %}
+
+    </ul>
+
+
+
+
+    <input type="submit" value="OK">
+</form>
+
+</body>
+</html>

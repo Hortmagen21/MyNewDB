@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/main/home/db/{{db_name}}/table/{{table_name}}/create_cols/{{cols_num}}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input id="db_name" type="hidden" name="db_name" value="{{db_name}}">
+    <input id="table_name" type="hidden" name="table_name" value="{{table_name}}">
+    <input id="cols_num" type="hidden" name="cols_num" value="{{cols_num}}">
+    <ul>
+        {% for i in cols_num %}
+        <li>
+            <select name="type"i id="type"i>
+                <option value="int">int</option>
+                <option value="str">str</option>
+                <option value="real">real</option>
+                <option value="char">char</option>
+                <option value="time">time</option>
+            </select>
+        </li>
+
+     {% endfor %}
+    </ul>
+
+
+
+
+
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>

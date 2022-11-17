@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+<table style="width:100%">
+    <tr>
+
+    {% for col_name in cols_name%}
+        <th>{{col_name}}</th>
+    {% endfor %}
+        <th>ID</th>
+    </tr>
+
+    {% for row in rows%}
+    <tr>
+        {% for col_name, row_value in row.items %}
+        <td>{{row_value}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

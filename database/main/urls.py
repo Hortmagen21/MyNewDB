@@ -4,9 +4,9 @@ from . import views
 
 urlpatterns = [
         path('home', views.home, name='home'),
-        path('home/create_db', views.create_db, name='create_db'),
         path('home/upload', views.upload_db, name='upload'),
         path('home/db/<slug:db_name>', views.db, name='watch_db'),
+        path('home/db/<slug:db_name>/create_db', views.create_db, name='create_db'),
         path('home/db/<slug:db_name>/edit_name', views.edit_db_name, name='edit_db_name'),
         path('home/db/<slug:db_name>/delete', views.delete_db, name='edit_db_name'),
         path('home/db/<slug:db_name>/download', views.download, name='download'),
@@ -23,8 +23,6 @@ urlpatterns = [
         path('home/db/<slug:db_name>/table/<slug:table_name>/delete_table', views.delete_table, name='delete_table'),
         path('home/db/<slug:db_name>/table/<slug:table_name>/del_same_rows', views.del_same_rows,
              name='table_del_same_rows'),
-
-
 
 
 ]

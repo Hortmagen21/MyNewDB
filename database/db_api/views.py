@@ -58,9 +58,8 @@ class Table:
 
 @api_view(["POST"])
 @csrf_exempt
-def create_db(request):
+def create_db(request, db_name):
     if request.method == 'POST':
-        db_name = request.data.get('db_name')
         link = f'C:/Users/Max/ITLab1/database/main/database/{db_name}.json'
         data = {
             "name": db_name,
@@ -71,7 +70,7 @@ def create_db(request):
             f.write(json_object)
             print("The database was created")
 
-        return Response(data)
+        return Response(status=200)
 
 
 @api_view(["GET"])

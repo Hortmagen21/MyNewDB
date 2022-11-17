@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'main',
-    'db_api'
+    'db_api',
+    'db_postgre',
 ]
 
 MIDDLEWARE = [
@@ -82,8 +83,12 @@ WSGI_APPLICATION = 'database.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd6lsheh0j6mukf',
+        'USER': "vttjdzcrbmnrde",
+        'PASSWORD': "cc014fcd75936158b6229c56c9c3987eb1c30d4cf47cad067b0176a77568ca87",
+        'HOST': "ec2-35-173-91-114.compute-1.amazonaws.com",
+        'PORT': '5432',
     }
 }
 
@@ -130,3 +135,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }

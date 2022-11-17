@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+        function createDB(event)
+      {
+            var db_name= document.getElementById('db_name').value;
+            $.ajax({
+                url: "http://127.0.0.1:8000/main/home/db/" + db_name + "/create_db",
+                type: 'POST',
+                success: function(result){
+                        window.location = "http://127.0.0.1:8000/main/home/db/"+ db_name;
+                          },
+                error: function (response) {
+
+                        window.location = "http://127.0.0.1:8000/main/home/db/"+ db_name;
+                    }
+
+            });
+
+
+        }
+    </script>
+    {% endblock javascript %}
+
+<form onSubmit="return createDB()">
+    {% csrf_token %}
+    {{ form }}
+    <label for="db_name">DB name: </label>
+    <input id="db_name" type="text" name="db_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+</form>
+{% for name in db_names%}
+
+    <p>{{name}}</p>
+    <a href="http://127.0.0.1:8000/main/home/db/{{name}}">
+        <button>Open</button>
+    </a>
+{% endfor %}
+<a href="http://127.0.0.1:8000/main/home/upload">
+        <button>Upload DB</button>
+</a>
+
+
+</body>
+</html>

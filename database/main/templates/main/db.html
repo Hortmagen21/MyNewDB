@@ -9,10 +9,10 @@
 {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-        function deleteTable(event)
+        function deleteTable(table_name, db_name)
       {
-            var db_name = document.getElementById('del_db').name;
-            var table_name = document.getElementById('del_table').name;
+            var db_name = db_name;
+            var table_name = table_name;
             $.ajax({
                 url: "http://127.0.0.1:8000/main/home/db/" +db_name + "/table/" + table_name +"/delete_table",
                 type: 'DELETE',
@@ -26,9 +26,12 @@
             });
 
         }
-        function deleteSameRow(event)
-      {     var db_name = document.getElementById('del_db').name;
-            var table_name = document.getElementById('del_rows').name;
+        function deleteSameRow(table_name, db_name)
+      {
+
+
+            var db_name = String(db_name);
+            var table_name = String(table_name);
             $.ajax({
                 url: "http://127.0.0.1:8000/main/home/db/{{db_name}}/table/" + table_name +"/del_same_rows",
                 type: 'DELETE',
@@ -44,9 +47,9 @@
 
 
         }
-        function deleteDB(event)
+        function deleteDB(db_name)
       {
-            var db_name = document.getElementById('del_db').name;
+            var db_name = db_name;
             $.ajax({
                 url: "http://127.0.0.1:8000/main/home/db/" + db_name +"/delete",
                 type: 'DELETE',
@@ -85,8 +88,8 @@
     <a href="http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table}}/view_table">
         <button>View Table</button>
     </a>
-    <button id="del_table" name="{{table}}" onclick="deleteTable()">Delete Table</button>
-    <button id="del_rows" name="{{table}}" onclick="deleteSameRow()">Delete the same rows</button>
+    <button id="del_table" name="{{table}}" onclick='deleteTable("{{table}}", "{{db_name}}")'>Delete Table</button>
+    <button id="del_rows" name="{{table}}" onclick='deleteSameRow("{{table}}", "{{db_name}}")'>Delete the same rows</button>
 
 
 {% endfor %}
@@ -100,6 +103,6 @@
 <a href="/main/home/db/{{db_name}}/edit_name">
    <button>Edit DB name</button>
 </a>
-<button id="del_db" name="{{db_name}}" onclick="deleteDB()">Delete DB</button>
+<button id="del_db" name="{{db_name}}" onclick='deleteDB("{{db_name}}")'>Delete DB</button>
 </body>
 </html>

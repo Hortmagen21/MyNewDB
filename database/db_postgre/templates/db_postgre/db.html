@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+        function deleteTable(event)
+      {
+            var db_name = document.getElementById('del_db').name;
+            var table_name = document.getElementById('del_table').name;
+            $.ajax({
+                url: "http://127.0.0.1:8000/main/home/db/" +db_name + "/table/" + table_name +"/delete_table",
+                type: 'DELETE',
+                success: function(result){
+                        window.location = "http://127.0.0.1:8000/main/home/db/"+ db_name;
+                          },
+                error: function (response) {
+                        console.log(response)
+                    }
+
+            });
+
+        }
+        function deleteSameRow(event)
+      {     var db_name = document.getElementById('del_db').name;
+            var table_name = document.getElementById('del_rows').name;
+            $.ajax({
+                url: "http://127.0.0.1:8000/main/home/db/{{db_name}}/table/" + table_name +"/del_same_rows",
+                type: 'DELETE',
+                success: function(result){
+                        window.location = "http://127.0.0.1:8000/main/home/db/" + db_name;
+                          },
+                error: function (response) {
+                        console.log(response)
+                    }
+
+            });
+
+
+
+        }
+        function deleteDB(event)
+      {
+            var db_name = document.getElementById('del_db').name;
+            $.ajax({
+                url: "http://127.0.0.1:8000/main/home/db/" + db_name +"/delete",
+                type: 'DELETE',
+                success: function(result){
+                        window.location = "http://127.0.0.1:8000/main/home";
+                          },
+                error: function (response) {
+                        console.log(response)
+                    }
+
+            });
+
+        }
+         function goHome(event)
+      {
+            window.location = "http://127.0.0.1:8000/main/home";
+
+        }
+    </script>
+    {% endblock javascript %}
+<button id="back" onclick="goHome()"> < </button>
+{{name}}
+<ul>
+{% for table in tables %}
+
+    <li>{{table}}</li>
+    <a href="http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table}}/add_row">
+        <button>Add row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table}}/edit_row">
+        <button>Edit Row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table}}/delete_row/1">
+        <button>Delete row</button>
+    </a>
+    <a href="http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table}}/view_table">
+        <button>View Table</button>
+    </a>
+    <button id="del_table" name="{{table}}" onclick="deleteTable()">Delete Table</button>
+    <button id="del_rows" name="{{table}}" onclick="deleteSameRow()">Delete the same rows</button>
+
+
+{% endfor %}
+</ul>
+<a href="/main/home/db/{{db_name}}/create_table">
+   <button>Create New Table</button>
+</a>
+<a href="/main/home/db/{{db_name}}/download">
+   <button>Download</button>
+</a>
+<a href="/main/home/db/{{db_name}}/edit_name">
+   <button>Edit DB name</button>
+</a>
+<button id="del_db" name="{{db_name}}" onclick="deleteDB()">Delete DB</button>
+</body>
+</html>

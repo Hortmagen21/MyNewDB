@@ -1,0 +1,14 @@
+{
+    "name": "ForTestPurpose",
+    "tables": {
+        "Test": {
+            "cols_type": [
+                "int"
+            ],
+            "cols_name": [
+                "Integer"
+            ],
+            "rows": []
+        }
+    }
+}

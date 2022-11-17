@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+        function deleteRow(event)
+      {
+
+            var id= document.getElementById('id_field').value;
+            $.ajax({
+                url: "http://127.0.0.1:8000/main/home/db/{{db_name}}/table/{{table_name}}/delete_row/" + id,
+                type: 'DELETE',
+                success: function(result){
+                        window.location = "http://127.0.0.1:8000/main/home/db/aa";
+                          },
+                error: function (response) {
+                        console.log(response)
+                    }
+
+            });
+
+
+        }
+    </script>
+    {% endblock javascript %}
+<form onSubmit="return deleteRow()">
+    {% csrf_token %}
+    {{ form }}
+    <p>Row ID:</p>
+    <input id="id_field" type="number" name="id_field">
+    <input type="submit" value="OK">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/main/home/upload" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <label for="download_db_name">Upload DB: </label>
+    <input id="download_db_name" type="file" name="db_name" accept="application/json">
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>

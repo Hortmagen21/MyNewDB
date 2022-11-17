@@ -2,14 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0157f8c-f0af-4091-91e0-60359c0ac38d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/main/templates/main/db_edit_name.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/cols_names.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/create_cols.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/create_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/db.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/db_edit_name.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/download.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/table_add_row.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/table_delete_row.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/table_delete_row.html___jb_old___" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/table_edit_row.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/templates/db_postgre/view_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/db_postgre/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/main/database/aa.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/main/templates/main/cols_names.html" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/templates/main/cols_names.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/db_api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/db_api/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/main/templates/main/db.html" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/templates/main/db.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/main/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/main/templates/main/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/templates/main/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/main/templates/main/table_delete_row.html" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/templates/main/table_delete_row.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/tests.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/main/views.py" afterDir="false" />
     </list>
@@ -24,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/main/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="422" column="43" selection-start-line="422" selection-start-column="43" selection-end-line="422" selection-end-column="43" />
+            <state relative-caret-position="217">
+              <caret line="220" lean-forward="true" selection-start-line="89" selection-end-line="220" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -34,10 +48,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/main/database/Test.json">
+        <entry file="file://$PROJECT_DIR$/database/main/database/ForTestPurpose.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/main/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+            <state relative-caret-position="136">
+              <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/main/database/AB.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/main/templates/main/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -46,34 +82,28 @@
         <entry file="file://$PROJECT_DIR$/database/main/templates/main/db.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="83" column="8" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/main/templates/main/index.html">
+        <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_edit_row.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state relative-caret-position="228">
+              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/main/templates/main/create_cols.html">
+        <entry file="file://$PROJECT_DIR$/database/db_postgre/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/main/templates/main/cols_names.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state relative-caret-position="252">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_delete_row.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="569">
+              <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -90,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/main/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="19" column="102" selection-start-line="19" selection-start-column="102" selection-end-line="19" selection-end-column="102" />
+            <state relative-caret-position="297">
+              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="73" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -104,8 +134,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -127,21 +157,27 @@
         <option value="$PROJECT_DIR$/database/main/templates/main/table_edit_row.html" />
         <option value="$PROJECT_DIR$/database/database/urls.py" />
         <option value="$PROJECT_DIR$/database/db_api/forms.py" />
-        <option value="$PROJECT_DIR$/database/db_api/urls.py" />
-        <option value="$PROJECT_DIR$/database/db_api/views.py" />
-        <option value="$PROJECT_DIR$/database/database/settings.py" />
-        <option value="$PROJECT_DIR$/database/main/templates/main/table_delete_row.html" />
         <option value="$PROJECT_DIR$/database/main/forms.py" />
         <option value="$PROJECT_DIR$/database/main/templates/main/upload.html" />
         <option value="$PROJECT_DIR$/database/main/database/test.json" />
         <option value="$PROJECT_DIR$/database/main/templates/main/db_edit_name.html" />
-        <option value="$PROJECT_DIR$/database/main/urls.py" />
-        <option value="$PROJECT_DIR$/database/main/templates/main/db.html" />
-        <option value="$PROJECT_DIR$/database/main/templates/main/index.html" />
         <option value="$PROJECT_DIR$/database/main/templates/main/cols_names.html" />
         <option value="$PROJECT_DIR$/database/main/database/Test.json" />
         <option value="$PROJECT_DIR$/database/main/database/aa.json" />
+        <option value="$PROJECT_DIR$/database/main/templates/main/table_delete_row.html" />
+        <option value="$PROJECT_DIR$/database/main/database/New.json" />
+        <option value="$PROJECT_DIR$/database/db_api/views.py" />
+        <option value="$PROJECT_DIR$/database/db_api/urls.py" />
+        <option value="$PROJECT_DIR$/database/main/urls.py" />
+        <option value="$PROJECT_DIR$/database/database/settings.py" />
+        <option value="$PROJECT_DIR$/database/db_postgre/urls.py" />
+        <option value="$PROJECT_DIR$/database/db_postgre/views.py" />
+        <option value="$PROJECT_DIR$/database/main/database/dbtest.json" />
+        <option value="$PROJECT_DIR$/database/main/templates/main/db.html" />
+        <option value="$PROJECT_DIR$/database/main/test.py" />
+        <option value="$PROJECT_DIR$/database/main/templates/main/index.html" />
         <option value="$PROJECT_DIR$/database/main/views.py" />
+        <option value="$PROJECT_DIR$/database/main/tests.py" />
       </list>
     </option>
   </component>
@@ -157,7 +193,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,18 +209,6 @@
               <item name="ITLab1" type="b2602c69:ProjectViewProjectNode" />
               <item name="ITLab1" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITLab1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITLab1" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="db_api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITLab1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITLab1" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -194,32 +217,23 @@
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITLab1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITLab1" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ITLab1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ITLab1" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Full" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Max\ITLab1\database\db_postgre\templates\db_postgre" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -232,6 +246,27 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unittests for main.tests.SimpleTest.test_del_same_rows" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="ITLab1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/database" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;main.tests.SimpleTest.test_del_same_rows&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Unittests for main.tests.SimpleTest.test_del_same_rows" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -246,22 +281,27 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_for_main_tests_SimpleTest_test_del_same_rows - 2022.11.17 at 19h 15m 46s.xml">
+      <configuration name="Unittests for main.tests.SimpleTest.test_del_same_rows" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14899328" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15302013" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2592068" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.24220963" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="ANTLR Preview" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.24362606" />
@@ -273,8 +313,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/main/templates.py" />
-    <entry file="file://$PROJECT_DIR$/database/main/database/$test.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/fvsfdf.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/ddsfvdf.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/dsvdd.json" />
@@ -284,13 +322,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/main/id_check" />
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/download.html" />
-    <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_edit_row.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/main/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -301,50 +332,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/database/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#632#664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/main/database/None.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/P.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/Postman1.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/Postman.json" />
-    <entry file="file://$PROJECT_DIR$/database/main/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/db_api/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2646">
-          <caret line="104" column="29" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/db_api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="15" column="87" selection-start-line="15" selection-start-column="87" selection-end-line="15" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/database/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/create_table.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -359,12 +350,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/db (3).json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/db(3).json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/db (3).json" />
+    <entry file="file://$PROJECT_DIR$/database/main/database/db(3).json" />
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/upload.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -372,26 +359,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/test2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/new.json.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/AB.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-902" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/test1.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/test2.json" />
+    <entry file="file://$PROJECT_DIR$/database/main/database/new.json.json" />
+    <entry file="file://$PROJECT_DIR$/database/main/database/test1.json" />
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/download.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -423,16 +393,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/new.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/templates/main/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/create_cols.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -440,44 +400,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/aa.json" />
+    <entry file="file://$PROJECT_DIR$/database/main/database/test3.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/test4.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/main/templates/main/cols_names.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="756">
           <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/templates/main/db.html">
+    <entry file="file://$PROJECT_DIR$/database/database/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="83" column="8" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="102" selection-start-line="19" selection-start-column="102" selection-end-line="19" selection-end-column="102" />
+        <state relative-caret-position="540">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="17" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#632#664#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_delete_row.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/aa.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="49" column="27" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/New.json" />
     <entry file="file://$PROJECT_DIR$/database/main/database/Test.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
@@ -485,16 +432,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/test4.json">
+    <entry file="file://$PROJECT_DIR$/database/db_api/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/db_postgre/templates/db_postgre/cols_names.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/main/database/test3.json">
+    <entry file="file://$PROJECT_DIR$/database/db_postgre/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="44" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/database/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="88" column="85" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/db_api/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="72" column="15" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/db_postgre/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/AB.json">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_delete_row.html___jb_old___">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-594" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_delete_row.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="25" column="15" lean-forward="true" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/templates/main/table_edit_row.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/dbtest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/templates/main/db.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/test.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/templates/main/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/database/ForTestPurpose.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/main/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="27" lean-forward="true" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/main/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="422" column="43" selection-start-line="422" selection-start-column="43" selection-end-line="422" selection-end-column="43" />
+        <state relative-caret-position="217">
+          <caret line="220" lean-forward="true" selection-start-line="89" selection-end-line="220" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>

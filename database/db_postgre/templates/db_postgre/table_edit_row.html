@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/main/home/db/{{db_name}}/table/{{table_name}}/edit_row" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <ul>
+        <p>Table:{{table_name}}</p>
+        <p>ID</p>
+        <input id="id_field" name="id_field" type="number" required>
+        {% for col_info in cols_info %}
+
+            <p>{{col_info.name}}</p>
+            <input id="field_{{col_info.id}}" name="fields" type="text" required>
+
+        {% endfor %}
+    </ul>
+    <input type="submit" value="OK">
+</form>
+<script type="text/javascript">
+            var colsInfo = {{cols_info|safe}};
+            var iterations = colsInfo.length;
+            for(const i of Array(iterations).keys()){
+                if(colsInfo[i]["type"]=="int"){
+                document.getElementById(`field_${i}`).type = "number";
+                }
+                if(colsInfo[i]["type"]=="real"){
+                document.getElementById(`field_${i}`).type = "number";
+                document.getElementById(`field_${i}`).step = "0.001";
+                }
+                if(colsInfo[i]["type"]=="char"){
+                document.getElementById(`field_${i}`).type = "text";
+                document.getElementById(`field_${i}`).maxLength = "1";
+                }
+                if(colsInfo[i]["type"]=="str"){
+                document.getElementById(`field_${i}`).type = "text";
+                }
+                if(colsInfo[i]["type"]=="time"){
+                document.getElementById(`field_${i}`).type = "time";
+                }
+            }
+
+        </script>
+
+</body>
+</html>
